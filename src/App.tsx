@@ -1,58 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect } from 'react'
+import { useAppSelector, useAppDispatch } from './app/hooks'
+import { increment } from './features/users/UserSlice'
+import { fetchUsers } from './features/users/ActionCreators'
+import PostContainer from './components/PostContainer'
 
-function App() {
+const App = () => {
+  // const { count, users, isLoading, error } = useAppSelector(
+  //   (state) => state.user
+  // )
+  // const dispatch = useAppDispatch()
+
+  // useEffect(() => {
+  //   dispatch(fetchUsers())
+  // }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    <section>
+      {/* <div>
+        <h1>{count}</h1>
+        <button onClick={() => dispatch(increment(1))}>inc</button>
+      </div>
+      <div>
+        {isLoading && <h1> Loading</h1>}
+        {error && <h1> errrrrrrrrror</h1>}
+        {JSON.stringify(users, null, 2)}
+      </div> */}
+      <PostContainer />
+    </section>
+  )
 }
 
-export default App;
+export default App
